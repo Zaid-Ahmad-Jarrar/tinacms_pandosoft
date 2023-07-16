@@ -53,6 +53,12 @@ export default defineConfig({
   branch: '',
   clientId: null,
   token: null,
+  
+  cmsCallback(cms) {
+    cms.sidebar.title = 'SideBa';
+   
+    return cms;
+},
   build: {
     // can set the host of the vite config here
     // host: true,

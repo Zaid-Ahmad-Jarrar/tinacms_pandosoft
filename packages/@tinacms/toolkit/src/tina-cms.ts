@@ -72,12 +72,14 @@ export interface TinaCMSConfig extends CMSConfig {
   alerts?: EventsToAlerts
   isLocalClient?: boolean
   clientId?: string
+  title?:string
 }
 
 export class TinaCMS extends CMS {
   sidebar?: SidebarState
   _alerts?: Alerts
   state: TinaState
+  title?:string
   dispatch: React.Dispatch<TinaAction>
 
   constructor({
@@ -85,6 +87,7 @@ export class TinaCMS extends CMS {
     alerts = {},
     isLocalClient,
     clientId,
+    title='PandoSoft',
     ...config
   }: TinaCMSConfig = {}) {
     super(config)

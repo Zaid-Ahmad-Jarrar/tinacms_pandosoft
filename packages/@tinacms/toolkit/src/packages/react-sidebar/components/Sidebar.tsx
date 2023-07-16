@@ -37,7 +37,7 @@ const LOCALWIDTHKEY = 'tina.sidebarWidth'
 const defaultSidebarWidth = 440
 const defaultSidebarPosition = 'displace'
 const defaultSidebarState = 'open'
-
+const defaultTitle = 'PandoSoft'
 export interface SidebarProviderProps {
   sidebar: SidebarState
   resizingSidebar: boolean
@@ -45,6 +45,7 @@ export interface SidebarProviderProps {
   defaultWidth?: SidebarStateOptions['defaultWidth']
   position?: SidebarStateOptions['position']
   defaultState?: SidebarStateOptions['defaultState']
+  title?: SidebarStateOptions['title']
 }
 
 export function SidebarProvider({
@@ -66,6 +67,7 @@ export function SidebarProvider({
       defaultWidth={cms?.sidebar?.defaultWidth || defaultWidth}
       resizingSidebar={resizingSidebar}
       setResizingSidebar={setResizingSidebar}
+      title={cms?.sidebar?.title || defaultTitle}
       renderNav={
         // @ts-ignore
         typeof cms?.sidebar?.renderNav !== 'undefined'
@@ -86,6 +88,7 @@ interface SidebarProps {
   defaultState?: SidebarStateOptions['defaultState']
   position?: SidebarStateOptions['position']
   renderNav?: boolean
+  title: SidebarStateOptions['title']
 }
 
 const useFetchCollections = (cms) => {
@@ -255,6 +258,7 @@ const Sidebar = ({
           <EditButton />
           {displayNav && (
             <Nav
+              title={cms?.sidebar?.title || defaultTitle}
               isLocalMode={cms.api?.tina?.isLocalMode}
               showCollections={isTinaAdminEnabled}
               collectionsInfo={collectionsInfo}
@@ -316,6 +320,7 @@ const Sidebar = ({
             >
               <div className="fixed left-0 top-0 z-overlay h-full transform">
                 <Nav
+                  title={cms?.sidebar?.title || defaultTitle}
                   isLocalMode={cms.api?.tina?.isLocalMode}
                   className="rounded-r-md"
                   showCollections={isTinaAdminEnabled}
