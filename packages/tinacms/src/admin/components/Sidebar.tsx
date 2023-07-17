@@ -39,11 +39,14 @@ const Sidebar = ({ cms }: { cms: TinaCMS }) => {
   const navBreakpoint = 1000
   const windowWidth = useWindowWidth()
   const renderDesktopNav = windowWidth > navBreakpoint
+  const defaultTitle = 'PandoSoft'
 
   return (
     <>
       {renderDesktopNav && (
         <Nav
+          logoUrl={cms?.sidebar?.logoUrl}
+          title={cms?.sidebar?.title || defaultTitle}
           isLocalMode={isLocalMode}
           sidebarWidth={360}
           showCollections={true}
@@ -81,6 +84,8 @@ const Sidebar = ({ cms }: { cms: TinaCMS }) => {
           >
             <div className="fixed left-0 top-0 z-overlay h-full transform">
               <Nav
+                logoUrl={cms?.sidebar?.logoUrl}
+                title={cms?.sidebar?.title || defaultTitle}
                 isLocalMode={isLocalMode}
                 className="rounded-r-md"
                 sidebarWidth={360}

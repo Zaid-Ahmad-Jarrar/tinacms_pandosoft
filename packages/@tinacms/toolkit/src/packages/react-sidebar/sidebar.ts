@@ -15,7 +15,8 @@ export interface SidebarStateOptions {
   defaultWidth?: number
   defaultState?: DefaultSidebarState
   renderNav?: boolean
-  title?:string
+  title?: string
+  logoUrl?: string
 }
 
 /**
@@ -35,7 +36,8 @@ export class SidebarState {
   private _isOpen: boolean = false
   placeholder: React.FC
   defaultState: DefaultSidebarState
-  title:string = 'PandoSoft'
+  title: string = 'PandoSoft'
+  logoUrl?: string
   position: SidebarPosition = 'displace'
   renderNav: boolean = true
   buttons: SidebarButtons = {
@@ -49,6 +51,7 @@ export class SidebarState {
     this.renderNav = options.renderNav || true
     this.placeholder = options.placeholder || NoFormsPlaceholder
     this.title = options.title
+    this.logoUrl  = options.logoUrl
 
     if (options.buttons?.save) {
       this.buttons.save = options.buttons.save

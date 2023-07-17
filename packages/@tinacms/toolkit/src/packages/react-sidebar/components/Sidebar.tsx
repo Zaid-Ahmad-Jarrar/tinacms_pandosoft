@@ -46,6 +46,7 @@ export interface SidebarProviderProps {
   position?: SidebarStateOptions['position']
   defaultState?: SidebarStateOptions['defaultState']
   title?: SidebarStateOptions['title']
+  logoUrl?:SidebarStateOptions['logoUrl']
 }
 
 export function SidebarProvider({
@@ -68,6 +69,7 @@ export function SidebarProvider({
       resizingSidebar={resizingSidebar}
       setResizingSidebar={setResizingSidebar}
       title={cms?.sidebar?.title || defaultTitle}
+      logoUrl={cms?.sidebar?.logoUrl}
       renderNav={
         // @ts-ignore
         typeof cms?.sidebar?.renderNav !== 'undefined'
@@ -89,6 +91,7 @@ interface SidebarProps {
   position?: SidebarStateOptions['position']
   renderNav?: boolean
   title: SidebarStateOptions['title']
+  logoUrl:SidebarStateOptions['logoUrl']
 }
 
 const useFetchCollections = (cms) => {
@@ -258,6 +261,7 @@ const Sidebar = ({
           <EditButton />
           {displayNav && (
             <Nav
+            logoUrl={cms?.sidebar?.logoUrl}
               title={cms?.sidebar?.title || defaultTitle}
               isLocalMode={cms.api?.tina?.isLocalMode}
               showCollections={isTinaAdminEnabled}
@@ -320,6 +324,7 @@ const Sidebar = ({
             >
               <div className="fixed left-0 top-0 z-overlay h-full transform">
                 <Nav
+                 logoUrl={cms?.sidebar?.logoUrl}
                   title={cms?.sidebar?.title || defaultTitle}
                   isLocalMode={cms.api?.tina?.isLocalMode}
                   className="rounded-r-md"

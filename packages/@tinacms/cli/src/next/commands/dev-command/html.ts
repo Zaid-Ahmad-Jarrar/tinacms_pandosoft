@@ -42,13 +42,17 @@ const errorHTML = `<style type="text/css">
 </div>`
   .trim()
   .replace(/[\r\n\s]+/g, ' ')
-
+//TODO: recheck the urls for favicon and tab title
 export const devHTML = (port: string) => `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TinaCMS</title>
+    <title>Edit Content</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.imgur.com/vJWEwPq.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.imgur.com/NWn7Frv.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.imgur.com/HYp9CKf.png" />
+
   </head>
 
   <!-- if development -->
