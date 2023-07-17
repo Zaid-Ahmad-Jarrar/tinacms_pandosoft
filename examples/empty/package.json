@@ -2,10 +2,11 @@
   "name": "starter-empty",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "start": "next start",
+    "dev": "tinacms dev -c \"next dev\"",
+    "start": "tinacms build && next start",
     "lint": "next lint",
-    "init-dev": "tinacms init"
+    "init-dev": "tinacms init",
+    "build": "tinacms build && next build"
   },
   "dependencies": {
     "@tinacms/cli": "workspace:*",
